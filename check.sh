@@ -94,7 +94,7 @@ if command -v dmidecode &> /dev/null; then
     echo -e "    Max Supported RAM: ${GREEN}${MAX_CAP:-Unknown}${NC} across ${GREEN}${SLOTS_NUM:-Unknown}${NC} physical slot(s)"
     
     echo -e "    ${BOLD}Slot Configuration:${NC}"
-    dmidecode -t 17 2>/dev/null | awk '
+    dmidecode -t 17 2>/dev/null | tr -d '\r' | awk '
         BEGIN { slot=0 }
         /Memory Device$/ {
             if (slot > 0) { print slot "::" size "::" ff "::" type "::" speed }
