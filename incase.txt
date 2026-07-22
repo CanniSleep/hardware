@@ -1,0 +1,44 @@
+Lenovo thinkpad T14 Gen 2:
+RAM: 16 GB
+CPU: AMD Ryzen 7 Pro
+GPU: AMD Radeon Graphics 
+Harddisk: 256 GB SSD
+
+Checks via voidlinux live usb:
+GPU: lspci | grep -E "VGA|3D"
+CPU: lscpu
+RAM: free -h
+Wifi card: lspci -k | grep -A 3 -i network
+• Note: look for intel not realtk
+Harddisk: lsblk -o NAME,ROTA,SIZE,TYPE,MODEL
+Battery: cat /sys/class/power_supply/BAT0/uevent
+If not BAT0 just ls power_supply dir
+Wlan: ip link
+• Note: if delays after lenovo 10 sec or stuck st lenovo need firmware update at home (fwupd)
+At home:
+Display:from BIOS get serial number then (support.lenovo.com/parts-lookup) As-built tab Display: Filter by "LCD Panels". Look for 300nits or 400nits Low Power.
++ thermal paste every year
+W/ warranty stress test at home
+
+Lenovo Thinkpad T480
+(or just T14 dedicated GPU if found at good price)
+RAM: 8GB
+CPU: intel i7-8th gen or i5-8th gen
+GPU: Nividia 2GB
+Harddisk:  256GB SSD
+
+Checks via voidlinux live usb:
+GPU: lspci | grep -E "VGA|3D"
+• Note: Except 2 lines intel intergriated and Dedicated nividia 
+CPU: lscpu
+RAM: free -h
+Harddisk: lsblk -o NAME,ROTA,SIZE,TYPE,MODEL
+Battery: cat /sys/class/power_supply/BAT0/uevent
+If not BAT0 just ls power_supply dir
+•  Note: T480 has 2 batt internal and external check both
+Wlan: ip link
+
+Thunderbolt & firmware:
+ls /sys/bus/thunderbolt/devices/
+If output dirs Ok if error dont buy
+W/ warranty stress test at home
